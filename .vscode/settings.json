@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "stacks.h": "c"
+        "stacks.h": "c",
+        "stdlib.h": "c",
+        "time.h": "c"
     }
 }

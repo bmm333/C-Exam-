@@ -15,10 +15,10 @@ void front(DATA *out,que q)
 }
 void clear_q(que q)
 {
-    q->cnt=0;
-    disposelis(q->rear);
-    q->rear=NULL;
-    q->front=NULL;
+  q->cnt= 0;
+  disposelis(&(q->front));
+  q->front = NULL;
+  q->rear= NULL;
 }
 void enqueue(DATA i,que q)
 {

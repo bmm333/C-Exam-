@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./recursion_lib.h"
+#include "../recursion_lib.h"
 
 
 typedef struct QUEUE{
