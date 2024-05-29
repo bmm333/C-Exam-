@@ -136,3 +136,11 @@ int productlis_rec(LINK lis)
 
 	return lis->data * productlis_rec(lis->next); 
 }
+void disposelis(LINK *lis) { 
+	LINK p; 
+	while (*lis != NULL) { 
+		p=*lis; 
+		*lis=(*lis)->next; 
+		free(p); 
+	} 
+}

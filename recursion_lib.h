@@ -16,3 +16,4 @@ void headinsert_rec(LINK *lis,DATA d);
 void tailinsert_rec(LINK *lis,DATA d);
 void printlis_rec(LINK lis);
 void sumnodes_rec(LINK *lis);
+void disposelis(LINK *lis);

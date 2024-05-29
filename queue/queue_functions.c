@@ -8,8 +8,30 @@ int isempty_q(que q)
 }
 void front(DATA *out,que q)
 {
-    if(!isempty_q)
+    if(!isempty_q(q))
     {
         *out=q->rear->data;
+    }
+}
+void clear_q(que q)
+{
+    q->cnt=0;
+    disposelis(q->rear);
+    q->rear=NULL;
+    q->front=NULL;
+}
+void enqueue(DATA i,que q)
+{
+    if(!isempty_q(q))
+    {
+        headinsert_rec(&(q)->front,i);
+        
+    }
+}
+void dequeue(DATA *out, que q)
+{
+    if(!isempty_q(q))
+    {
+
     }
 }
