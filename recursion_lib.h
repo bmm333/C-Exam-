@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef DATA data;
+typedef int DATA;
 
 struct lista{
 	DATA data;

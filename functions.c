@@ -6,7 +6,7 @@ LINK newnode(DATA d){
 	LINK p=malloc(sizeof(ELEMENT));
 	if(p==NULL)
 	{
-		fprintf("Not Enough space in memory");
+		printf("Not Enough space in memory");
 		return;
 	}
 	p->data=d;
@@ -19,12 +19,12 @@ void buildlis_rec(LINK *lis,DATA d[],int len,int pos,int sel){
 		if(sel==1)
 		{
 			tailinsert_rec(lis,d[pos]);
-			buildlis_rec(lis,d,len,pos+1);
+			buildlis_rec(lis,d,len,pos+1,sel);
 		}
 		else
 		{
 		headinsert_rec(lis,d[pos]);
-		buildlis_rec(lis,d,len,pos+1);
+		buildlis_rec(lis,d,len,pos+1,sel);
 		}
 	}
 	
@@ -46,7 +46,7 @@ void tailinsert_rec(LINK *lis,DATA d)
 {
 	if((*lis)==NULL)
 	{
-		lis=newnode(p);
+		lis=newnode(d);
 	}
 	else
 	{
@@ -61,13 +61,13 @@ void printlis_rec(LINK lis){
 	}
 }
 
-int sumnodes_rec(LINK lis)
+int sumnodes_rec(LINK *lis)
 {
-	if(lis==NULL)
+	if(*lis==NULL)
 	{
 		return 0;
 	}
-	return lis->d + sumnodes_rec(lis->next);
+	return (*lis)->data + sumnodes_rec((*lis)->next);
 }
 int findbiggestcouple_rec(LINK lis)
 {
@@ -107,7 +107,7 @@ LINK mergelists_rec(LINK l1,LINK l2)
 	{
 		return l1;
 	}
-	if(l1->d<l2->d)
+	if(l1->data<l2->data)
 	{
 		l1->next=mergelists_rec(l1->next,l2);
 		return l1;

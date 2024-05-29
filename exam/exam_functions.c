@@ -20,7 +20,7 @@ int secondLongst(char *v)
 	}
 	if(index!=-1)
 	{
-			printf("The longest name is %s\n"v[index]);
+			printf("The longest name is %s\n",v[index]);
 	}
 	else
 	{
@@ -141,3 +141,4 @@ void mergesort(LINK* lis)
 
 /*No auxi space, uttilizando i next pointers dei nodi per fare il merge 
 senza uttilizare extra space */
+

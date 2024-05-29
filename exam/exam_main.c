@@ -14,7 +14,7 @@ int main()
     float alpha = 0.5;
     EMA(values, alpha, length - 1);
     int k, m;
-    int array[];
+    int array[20];
 	secondLongest(array);
 	sumOdd(5);
     // Example to load the list from input (you could also load from a file)
