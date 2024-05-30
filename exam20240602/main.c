@@ -43,7 +43,7 @@ int main()
      for (int i = 0; i < size; i++) {
         printf("EMA(%d): %.3f\n", i, ema(array, alpha, i + 1));
     }
-    int k=5,m=3;
+    int k=2,m=2;
     printlist(list);
     km(&list,k,m);
     printf("La lista dopo la cancellazione di m in k\n");

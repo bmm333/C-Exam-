@@ -53,30 +53,34 @@ void tailinsert(LINK *lis,DATA d)
 }
 void printlist(LINK lis)
 {
-    printf("List");
+    printf("List\n");
     while(lis!=NULL)
     {
         
-        printf("->%d",lis->data);
+        printf(">>>>%d\n",lis->data);
         lis=lis->next;
     }
-    printf("->NULL");
     printf("\n");
 
 }
 void km(LINK *lis,int k,int m)
 {
     int n=0;
-    LINK current=(*lis);
-      while (current != NULL) {
-        if (current->data % m != 0 && n % k == 0) {
-            LINK temp = current;
-            *lis = current->next;
-            current = current->next;
-            free(temp);
-        } else {
+    LINK *current = lis;
+
+    while (*current != NULL) {
+        if ((*current)->data % m == 0) {
+            if (n % k == 0) {
+                LINK temp = *current;
+                *current = (*current)->next;
+                free(temp);
+            } else {
+                current = &(*current)->next;
+            }
             n++;
-            current = current->next;
+        } else {
+            current = &(*current)->next;
         }
     }
 }
+
