@@ -77,8 +77,29 @@ LINK newnode(DATA d)
 }
 void buildlist(LINK *lis,DATA d)
 {
-    LINK p=newnode(d);
-	p->next=(*lis);
-	*lis=p;
-    buildlist(lis,d);
+
+    LINK p = newnode(d);
+    p->next = *lis;
+    *lis = p;
+}
+void printlist(LINK *lis)
+{
+    if(*lis!=NULL)
+    {
+        printf(">>>%d\n",(*lis)->data);
+        printlist(&((*lis)->next));
+    }
+}
+void scalarproduct(LINK l1,LINK l2)
+{
+
+    int sum=0;
+    while(l1!=NULL&&l2!=NULL)
+    {
+        sum+=l1->data*l2->data;
+        l1=l1->next;
+        l2=l1->next;
+    }
+    printf("Prodotto scalare: %d\n",sum);
+    
 }

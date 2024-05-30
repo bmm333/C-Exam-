@@ -12,7 +12,7 @@ int main()
     scanf("%d",&n);
     for(int i=0;i<n;i++)
     {
-        DATA data=rand()%(100-0+1)-0;
+        DATA data=rand()%101;
         buildlist(&list,data);
     }
     int *array=NULL;
@@ -29,4 +29,13 @@ int main()
     } else {
         printf("Gli elementi di arr1 non compaiono in arr2 nello stesso ordine\n");
     }
+    printlist(&list);
+    LINK list2=NULL;
+     for(int i=0;i<n;i++)
+    {
+        DATA data=rand()%100;
+        buildlist(&list2,data);
+    }
+    printlist(&list2);
+    scalarproduct(list,list2);
 }
