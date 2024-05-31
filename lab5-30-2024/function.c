@@ -7,16 +7,16 @@ void readfile(int **array) {
     int size = 0;
     FILE *fp = fopen("./lab5-30-2024/text.txt", "r");
     if (fp == NULL) {
-        printf("Error cannot open file");
+        printf("Error: cannot open file");
         return;
     }
     int *temp = NULL;
     while (fscanf(fp, "%d", &val) != EOF) {
         if (val > 0) {
-            temp = (int *) realloc(*array, (i + 1) * sizeof(int));
+            temp = (int *)realloc(*array, (i + 1) * sizeof(int));
             if (temp == NULL) {
                 free(*array);
-                printf("Errore di allocazione della memoria!\n");
+                printf("Memory allocation error!\n");
                 fclose(fp);
                 return;
             }
@@ -28,39 +28,56 @@ void readfile(int **array) {
     }
     fclose(fp);
 
-    for (i = 0; i < size; i++) {
-        printf("Elementi nel array: %d\n", (*array)[i]);
-    }
-  /*  int min=(*array)[i];
-    int max=(*array)[i];
-    int sum
-    int media=0;
-    for(i=0;i<size;i++)
+    for (i = 0; i < size; i++) 
     {
-        if(min>array[i])
-        {
-            min=array[i];
-        }
-        else if(max<array[i])
-        {
-            max=array[i];
-        }
-        sum+=array[i];
+        printf("Element in array: %d\n", (*array)[i]);
     }
-    media=sum/size;*/
+
+    if (size == 0) 
+    {
+        printf("No valid elements to process.\n");
+        return;
+    }
+
+    int min = (*array)[0];
+    int max = (*array)[0];
+    int sum = 0;
+    float media;
+
+    for (int l = 0; l < size; l++) 
+    {
+        if (min > (*array)[l]) 
+        {
+            min = (*array)[l];
+        }
+        if (max < (*array)[l]) 
+        {
+            max = (*array)[l];
+        }
+        sum += (*array)[l];
+    }
+
+    media = sum / (float)size;  // Cast size to float to get a float result
+    printf("La media è: %.2f\n", media);  // Use %.2f to print the float value with 2 decimal places
+    printf("Il minimo è: %d\n", min);
+    printf("Il massimo è: %d\n", max);
 }
 
-int array_in(int arr1[], int arr2[], int index1, int size1, int index2, int size2) {
+int array_in(int arr1[], int arr2[], int index1, int size1, int index2, int size2) 
+{
     // Se tutti gli elementi di arr1 sono stati trovati in arr2
-    if (index1 == size1) {
+    if (index1 == size1)
+    {
         return 1;
     }
     // Se arr2 è esaurito prima di trovare tutti gli elementi di arr1
-    if (index2 == size2) {
+    if (index2 == size2) 
+    {
         return 0;
     }
     // Se l'elemento corrente di arr1 è uguale all'elemento corrente di arr2
-    if (arr1[index1] == arr2[index2]) {
+    if (arr1[index1] == arr2[index2])
+    {
         // Continua a cercare il prossimo elemento di arr1 e di arr2
         return array_in(arr1, arr2, index1 + 1, size1, index2 + 1, size2);
     }
@@ -102,4 +119,28 @@ void scalarproduct(LINK l1,LINK l2)
     }
     printf("Prodotto scalare: %d\n",sum);
     
+}
+
+LINK list_build(LINK lis)
+{
+    LINK dup=NULL;
+    while(lis!=NULL)
+    {
+        LINK curr=lis->next;
+        int count=0;
+        while(curr!=NULL)
+        {
+            if(curr->data==lis->data)
+            {
+                count++;
+            }
+            curr=curr->next;
+        }
+        if(count>0)
+        {
+            buildlist(&dup,lis->data);
+        }
+        lis=lis->next;
+    }
+    return dup;
 }

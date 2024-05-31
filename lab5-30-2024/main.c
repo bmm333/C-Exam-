@@ -38,4 +38,8 @@ int main()
     }
     printlist(&list2);
     scalarproduct(list,list2);
+    list_build(list);
+    printlist(&list);
+
+    free(array);
 }
