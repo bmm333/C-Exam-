@@ -144,3 +144,18 @@ LINK list_build(LINK lis)
     }
     return dup;
 }
+LINK reverse(LINK *lis)
+{
+    LINK curr = *lis;
+    LINK prev = NULL;
+    LINK next = NULL;
+
+    while (curr != NULL) {
+        next = curr->next; 
+        curr->next = prev; 
+        prev = curr;       
+        curr = next;       
+    }
+    *lis = prev;
+    return *lis;
+}

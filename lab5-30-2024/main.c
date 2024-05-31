@@ -29,6 +29,7 @@ int main()
     } else {
         printf("Gli elementi di arr1 non compaiono in arr2 nello stesso ordine\n");
     }
+    printf("Lista generata:\n");
     printlist(&list);
     LINK list2=NULL;
      for(int i=0;i<n;i++)
@@ -36,10 +37,12 @@ int main()
         DATA data=rand()%100;
         buildlist(&list2,data);
     }
+    printf("la seconda lista generata:\n");
     printlist(&list2);
     scalarproduct(list,list2);
     list_build(list);
+    printf("la lista dopo la rimozione dei duplicate: \n");
     printlist(&list);
-
+    reverse(&list);
     free(array);
 }
