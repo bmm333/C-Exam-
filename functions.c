@@ -7,7 +7,11 @@ LINK newnode(DATA d){
 	if(p==NULL)
 	{
 		printf("Not Enough space in memory");
-		return;
+		return;	
+no
+	
+May 30, 2024
+
 	}
 	p->data=d;
 	p->next=NULL;
