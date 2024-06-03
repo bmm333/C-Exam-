@@ -1,15 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "recursion_lib.h"
-
+#include "lib.h"
 
 int main()
-{	
-	int i=0,idpos=0;
-	LINK list = NULL;
-	DATA data[]={20,54,13,65};
-	int len_array=sizeof(data)/sizeof(data[0]); // dimensione del array
-	buildlis_rec(&list,data,len_array,idpos);
-	sumnodes_rec(list);
-	return 0;
+{
+	int n=0;
+	LINK list=NULL;
+	printf("Inserire la quantita dei nodi da creare:\n");
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+		int ch;
+		printf("insert in tail(1) or head?(2)\n");
+		scanf("%d",ch);
+		DATA data=rand()%(11-1+1)+1;
+		buildlist(&list,data,ch);
+	}
+	printf("La lista Creata:");
+	printlist(list);
+
 }
