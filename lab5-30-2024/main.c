@@ -44,5 +44,7 @@ int main()
     printf("la lista dopo la rimozione dei duplicate: \n");
     printlist(&list);
     reverse(&list);
+    printf("la lista reversa:\n");
+    printlist(&list);
     free(array);
 }
