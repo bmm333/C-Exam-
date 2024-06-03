@@ -129,7 +129,7 @@ int sumoflis_rec(LINK lis)
 
 int productlis_rec(LINK lis)
 {
-	if(lis==NULL)w
+	if(lis==NULL)
 	{
 		return 1;
 	}
