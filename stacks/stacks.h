@@ -12,7 +12,8 @@ typedef struct Stack
 {
     LINK top;
     int cnt;
-    int back
+    int back;
+    int rev;
     
 }stack;
 
