@@ -112,5 +112,24 @@ LINK middleoflist(LINK* lis)
     return slow;
 }
 
-void mergesortedlists(LINK l1,LINK l2)
+LINK mergesortedlists(LINK l1,LINK l2)
+{
+    if(l1==NULL)
+        return l2;
+    if(l2==NULL)
+        return l1;
+    if(l1!=NULL||l2!=NULL)
+    {
+        if(l1->data<l2->data)
+        {
+            l1->next=mergesortedlists(l1->next,l2);
+            return l1;
+        }
+        else
+        {
+            l2->next=mergesortedlists(l1,l2->next);
+            return l2;
+        }
+    }
+}
 

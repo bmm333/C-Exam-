@@ -10,11 +10,17 @@ int main()
     scanf("%d",&num);
     headinsert(&list,1);
     headinsert(&list,6);
+    headinsert(&list,8);
     printlist(list);
-    /*deleteelement(&list,6);*/
-    printlist(list);
+    /*deleteelement(&list,6);
+    printlist(list);*/
     printf("List length: %d\n",listlength(list));
     reverse(&list);
     printlist(list);
-    
+    printf("Middle of list: %d\n", middleoflist(&list)->data);
+    LINK l2=NULL;
+    headinsert(&l2,5);
+    headinsert(&l2,2);
+    mergesortedlists(list,l2);
+    printlist(list);
 }

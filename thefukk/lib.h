@@ -16,4 +16,6 @@ void deletelist(LINK* lis);
 int listlength(LINK lis);
 void printlist(LINK lis);
 LINK reverse(LINK* lis);
-int looplist(LINK* lis)
+int looplist(LINK* lis);
+LINK middleoflist(LINK* lis);
+LINK mergesortedlists(LINK l1,LINK l2);
