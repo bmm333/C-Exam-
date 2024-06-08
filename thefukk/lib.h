@@ -15,3 +15,5 @@ void deleteelement(LINK *lis,DATA d);
 void deletelist(LINK* lis);
 int listlength(LINK lis);
 void printlist(LINK lis);
+LINK reverse(LINK* lis);
+int looplist(LINK* lis)

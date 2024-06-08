@@ -26,31 +26,91 @@ void headinsert(LINK *lis,DATA d){
         *lis=temp;
     }
 }
-void deleteelement(LINK *lis,DATA d)
-{
-    if((*lis)==NULL)
-    {   
+void deleteelement(LINK *lis, DATA d) {
+    if (*lis == NULL) {
         return;
-    }    
-    if((*lis)->next != NULL && (*lis)->next->data == d)
-    {
-        LINK temp=(*lis)->next;
-        (*lis)->next=temp->next;
-        free(temp);
-        deleteelement(&((*lis)->next), d);
-    }
-    else{
-        deleteelement(&((*lis)->next), d);
     }
 
+    while (*lis != NULL && (*lis)->data == d) {
+        LINK temp = *lis;
+        *lis = (*lis)->next;
+        free(temp);
+    }
+
+    LINK current = *lis;
+    while (current != NULL && current->next != NULL) {
+        if (current->next->data == d) {
+            LINK temp = current->next;
+            current->next = current->next->next;
+            free(temp);
+        } else {
+            current = current->next;
+        }
+    }
 }
 void printlist(LINK lis)
 {
     if(lis!=NULL)
     {
-        printf(">>%d",lis->data);
+        printf(">>%d\n",lis->data);
         printlist(lis->next);
     }
     return;
 }
+int listlength(LINK lis)
+{
+    if(lis==NULL)
+    {
+        return 0;
+    }
+    if(lis!=NULL)
+    {
+        return 1 + listlength(lis->next);
+    }
+}
+LINK reverse(LINK* lis)
+{
+    LINK prev=NULL;
+    LINK Next=(*lis);
+    LINK curr=(*lis);
+    while(curr)
+    {
+        curr=curr->next;
+        Next->next=prev;
+        prev=Next;
+        Next=curr;
+    }
+    *lis=prev;
+    return prev;
+}
+int looplist(LINK* lis)
+{
+    LINK fast=(*lis);
+    LINK slow=(*lis);
+
+    while(fast!=NULL&&fast->next!=NULL)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+        if(slow==fast)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+LINK middleoflist(LINK* lis)
+{
+    LINK fast=(*lis);
+    LINK slow=(*lis);
+
+    while(fast!=NULL&&fast->next!=NULL)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    return slow;
+}
+
+void mergesortedlists(LINK l1,LINK l2)
 
