@@ -132,4 +132,24 @@ LINK mergesortedlists(LINK l1,LINK l2)
         }
     }
 }
+LINK removedup(LINK* lis)
+{
+    if (*lis == NULL)
+        return NULL;
+    LINK curr=(*lis);
+    while(curr->next!=NULL)
+    {
+        if(curr->next->data==(*lis)->data)
+        {
+            LINK dup=curr->next;
+            curr->next=curr->next->next;
+            free(dup);
+        }
+        else
+            curr=curr->next;
+    }
+    removedup(&((*lis)->next));
+
+}
+
 

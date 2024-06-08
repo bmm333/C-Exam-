@@ -19,3 +19,4 @@ LINK reverse(LINK* lis);
 int looplist(LINK* lis);
 LINK middleoflist(LINK* lis);
 LINK mergesortedlists(LINK l1,LINK l2);
+LINK removedup(LINK* lis);
