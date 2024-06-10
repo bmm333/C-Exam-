@@ -11,6 +11,6 @@ typedef ELEMENT* LINK;
 
 LINK newnode(DATA d);
 void headinsert(LINK* lis,DATA d);
-/*char* maxwidthletter(char* nome,int max,int width,char k);*/
+char* maxwidthletter(char nome[][15], int max, int width, char k);
 int modiSalitaScala(int n);
 

@@ -2,26 +2,37 @@
 #include <stdlib.h>
 #include "lib.h"
 
-/*char* maxwidthletter(char* nome,int max,int width,char k)
-{
-    int counter=0;
-    char maxcounter[max];
-    for(int i=0;i<max;i++)
-    {
-        for(int j=0;j<width;j++)
-        {
-            if(*(nome+(i+j))==k)
-            {
-                counter++;
-            }
+char* maxwidthletter(char nome[][15], int max, int width, char k) {
+    int maxCount = 0;
+    char* maxString = NULL;
 
+    for (int i = 0; i < max; i++) {
+        int currentCount = 0;
+        for (int j = 0; j < strlen(nome[i]); j++) {
+            if (nome[i][j] == k) {
+                currentCount++;
+            }
         }
-        maxcounter[i]=counter;
+
+        if (currentCount > maxCount) {
+            maxCount = currentCount;
+            maxString = nome[i];
+        }
     }
 
-    return maxcounter;
-}*/
+    if (maxString) {
+        char* result = (char*)malloc((strlen(maxString) + 1) * sizeof(char));
+        if (result == NULL) {
+            printf("Memory allocation failed\n");
+            exit(1);
+        }
+        strcpy(result, maxString);
+        return result;
+    }
 
+    return NULL;
+}
+/*
 int modiSalitaScala(int n)
 {
     if(n<=1)
@@ -81,3 +92,4 @@ void caricalista(LINK lis,char* nome)
 {
     
 }
+*/
