@@ -71,5 +71,15 @@ Libro ultimo(Libro* bibloteca,int bsize)
 }
 void insertstudents(Student* students,int size)
 {
-    
+    for(int i=0;i<size;i++)
+    {
+        srand(time(NULL));
+        students[i].matricola=rand()%(size + 1 - 1) + 1;
+        printf("inseire il nome della matricola %d \n",students[i].matricola);
+        scanf("%s",students[i].nome);
+        printf("inseire il cognome della matricola %d \n",students[i].matricola);
+        scanf("%s",students[i].cognome);
+        printf("inseire leta della matricola %d \n",students[i].matricola);
+        scanf("%d",&students[i].eta);
+    }
 }

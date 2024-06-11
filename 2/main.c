@@ -38,7 +38,20 @@ int main()
     insertbooks(bibloteca,num_libri);
     Libro ris=ultimo(bibloteca,num_libri);
     printf("Ultimo libro inserito e %s del autore %s nel %d",ris.titolo,ris.autore,ris.anno_pubblicazione);
-
-
+    printf("Quantita dei studenti da registrare:\n");
+    int num_stu=0;
+    scanf("%d",&num_stu);
+    if(num_stu<1)
+    {
+        fprintf(stderr,"Numero non accettabile , inserire almeno 1 studente\n");
+        exit(1);
+    }
+    Student *stu=malloc(sizeof(num_stu*sizeof(Student)));
+    if(!stu)
+    {
+        fprintf(stderr,"cannot allocate memory for new students to register\n");
+        exit(2);
+    }
+    insertstudents(Student,num_stu);
     return 0;
 }
