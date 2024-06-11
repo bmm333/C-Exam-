@@ -3,7 +3,8 @@
         "stacks.h": "c",
         "stdlib.h": "c",
         "time.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "lib.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
