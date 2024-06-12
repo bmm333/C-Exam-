@@ -75,5 +75,7 @@ int main()
     scanf("%s",filename);
     list = uploadtolist(&list,filename);
     printlist(list);
+    int array[5]={1,2,5,3,2};
+    printf("Max consx prod is %d\n",maxprod(array,5));
     return 0;
 }

@@ -195,9 +195,25 @@ LINK newnode(DATA d)
     p->next=NULL;
     return p;
 }
-void headinsert(DATA d,LINK* lis);
+void headinsert(DATA d,LINK* lis)
 {
     LINK temp=*lis;
     temp->next=*lis;
     *lis=temp;
 }
+
+int maxprod(int *array,int arrsize)
+{
+    int max=0;
+    int curr=0;
+    for(int i=0;i<arrsize-1;i++)
+    {
+        curr=array[i]*array[i+1];
+        if(curr>max)
+        {
+            max=curr;
+        }
+    }
+    return max;
+}
+
