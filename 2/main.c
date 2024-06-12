@@ -52,6 +52,7 @@ int main()
         fprintf(stderr,"cannot allocate memory for new students to register\n");
         exit(2);
     }
-    insertstudents(Student,num_stu);
+    insertstudents(stu,num_stu);
+    studentsout(stu,num_stu);
     return 0;
 }

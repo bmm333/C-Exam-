@@ -3,6 +3,8 @@
 #include <limits.h>
 #include <string.h>
 #include "lib.h"
+#include <time.h>
+#define MAX_VOTI 10
 
 
 void inputCities(City* citty,int n)
@@ -74,12 +76,37 @@ void insertstudents(Student* students,int size)
     for(int i=0;i<size;i++)
     {
         srand(time(NULL));
-        students[i].matricola=rand()%(size + 1 - 1) + 1;
+        students[i].matricola=rand() % (200599 + 1 - 200100) + 200100;
         printf("inseire il nome della matricola %d \n",students[i].matricola);
         scanf("%s",students[i].nome);
         printf("inseire il cognome della matricola %d \n",students[i].matricola);
         scanf("%s",students[i].cognome);
         printf("inseire leta della matricola %d \n",students[i].matricola);
         scanf("%d",&students[i].eta);
+        printf("Quanti voti voelte inserire ?\n");
+        scanf("%d",&students[i].num_voti);
+        float somma_voti=0;
+         while (students[i].num_voti <= 0 || students[i].num_voti > MAX_VOTI) {
+            printf("Il numero di voti deve essere compreso tra 1 e %d. Reinserire: \n", MAX_VOTI);
+            scanf("%d", &students[i].num_voti);
+        }
+        for (int j = 0; j < students[i].num_voti; j++) {
+            printf("Inserire il voto %d per lo studente %s: \n", j + 1, students[i].nome);
+            scanf("%f", &students[i].voti[j]);
+            somma_voti += students[i].voti[j];
+        }
+
+        students[i].media =(float) somma_voti / students[i].num_voti;
+    }
+}
+void studentsout(Student* students,int ns)
+{
+    for(int i=0;i<ns;i++)
+    {
+        printf("Matricola: %d\nNome: %s\nCognome: %s\nEta: %d\nMedia:%.2f\n",students[i].matricola,students[i].nome,students[i].cognome,students[i].eta,students[i].media);
+        for(int j=0;j<students[i].num_voti;j++)
+        {
+            printf("Voti della matricola %f\n",students[i].voti[j]);
+        }
     }
 }

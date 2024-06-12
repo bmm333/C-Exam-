@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MAX_VOTI 10
 
 
 typedef struct ci {
@@ -32,4 +33,4 @@ typedef struct {
 }   Student;
 
 void insertstudents(Student* students,int size);
-Student calcmedia(Student* students,int size);
+void studentsout(Student* students,int ns);
