@@ -44,3 +44,15 @@ typedef struct
 }   Prodotto;
 
 void inserisciProdotti(Prodotto* prodotti, int num_prodotti);
+void stampaprodotti(Prodotto* prodotti,int nump);
+
+typedef int DATA;
+typedef struct linkedlist
+{
+    DATA data;
+    struct linkedlist* next;
+}   ELEMENT;
+typedef ELEMENT* LINK;
+
+LINK uploadtolist(LINK* lis,char* nome);
+void printlist(LINK lis);

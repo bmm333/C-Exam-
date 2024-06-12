@@ -6,7 +6,7 @@
 
 int main()
 {
-    int n=0;
+   /* int n=0;
     printf("quante citta volete inserire?\n");
     scanf("%d",&n);
     City citta[n];
@@ -37,7 +37,7 @@ int main()
     }
     insertbooks(bibloteca,num_libri);
     Libro ris=ultimo(bibloteca,num_libri);
-    printf("Ultimo libro inserito e %s del autore %s nel %d",ris.titolo,ris.autore,ris.anno_pubblicazione);
+    printf("Ultimo libro inserito e %s del autore %s nel %d\n",ris.titolo,ris.autore,ris.anno_pubblicazione);
     printf("Quantita dei studenti da registrare:\n");
     int num_stu=0;
     scanf("%d",&num_stu);
@@ -54,5 +54,26 @@ int main()
     }
     insertstudents(stu,num_stu);
     studentsout(stu,num_stu);
+    printf("quanti prodotti volete inserire?\n");
+    int nump=0;
+    scanf("%d",&nump);
+    Prodotto* prod=malloc(sizeof(nump*sizeof(Prodotto)));
+     if (prod == NULL) {
+        fprintf(stderr, "Errore di allocazione della memoria.\n");
+        return 1;
+    }
+    for(int i=0;i<nump;++i)
+    {
+        prod[i].codice=-1;
+    }
+    inserisciProdotti(prod,nump);
+    stampaprodotti(prod,nump);*/
+    
+    LINK list=NULL;
+    char filename[50];
+    printf("insert file name to prase data from:\n");
+    scanf("%s",filename);
+    list = uploadtolist(&list,filename);
+    printlist(list);
     return 0;
 }

@@ -112,12 +112,92 @@ void studentsout(Student* students,int ns)
 }
 void inserisciProdotti(Prodotto* prodotti, int num_prodotti)
 {
-    for(int i=0;i<num_prodotti;++i)
+    for (int i = 0; i < num_prodotti; i++) 
     {
-        if(prodotti[i].codice!=-1)
-        {
+        if (prodotti[i].codice != -1) {
+            // Skip if the product is already initialized
+            continue;
+         }
+        printf("Inserisci il nome del prodotto %d: ", i + 1);
+        scanf("%s", prodotti[i].nome);
+        printf("Inserisci il codice del prodotto %d: ", i + 1);
+        scanf("%d", &prodotti[i].codice);
+        printf("Inserisci la quantita' del prodotto %d: ", i + 1);
+        scanf("%d", &prodotti[i].quantita);
+        printf("Inserisci il prezzo del prodotto %d: ", i + 1);
+        scanf("%f", &prodotti[i].prezzo);
+    }
+}
+
+void stampaprodotti(Prodotto* prodotti,int nump)
+{
+    for (int i = 0; i < nump; i++) {
+        if (prodotti[i].codice == -1) {
+            // Skip uninitialized products
             continue;
         }
-        printf("inserire il nome del prodotto %s",prodotti[i].nome);
+        printf("Prodotto %d:\n", i + 1);
+        printf("Nome: %s\nCodice: %d\nQuantita': %d\nPrezzo: %.2f\n",
+               prodotti[i].nome, prodotti[i].codice, prodotti[i].quantita, prodotti[i].prezzo);
     }
+}
+
+LINK uploadtolist(LINK* lis, char* nome) {
+    int value;
+    FILE* fp = fopen(nome, "r");
+    if (!fp) {
+        printf("cannot open file\n");
+        exit(3);
+    }
+    LINK head = NULL;
+    LINK tail = NULL;
+    printf("Reading data from file...\n");
+    while (fscanf(fp, "%d", &value) != EOF) {
+        printf("Read value: %d\n", value);
+        LINK p = (LINK)malloc(sizeof(ELEMENT));
+        if (!p) {
+            fprintf(stderr, "Cannot allocate memory for new node\n");
+            exit(4);
+        }
+        p->data = value;
+        p->next = NULL;
+        if (!head) {
+            head = p;
+            tail = p;
+            printf("Initialized head with value: %d\n", head->data);
+        } else {
+            tail->next = p;
+            tail = p;
+            printf("Appended value %d to the list\n", p->data);
+        }
+    }
+    fclose(fp);
+    printf("Data read from file successfully.\n");
+    return head;
+}
+void printlist(LINK lis)
+{
+    while(lis)
+    {
+        printf(">>>%d\n",lis->data);
+        lis=lis->next;
+    }
+}
+LINK newnode(DATA d)
+{
+    LINK p=malloc(sizeof(ELEMENT));
+    if(!p)
+    {
+        fprintf(stderr,"Error cannot allocate memory for new node\n");
+        exit(3);
+    }
+    p->data=d;
+    p->next=NULL;
+    return p;
+}
+void headinsert(DATA d,LINK* lis);
+{
+    LINK temp=*lis;
+    temp->next=*lis;
+    *lis=temp;
 }
