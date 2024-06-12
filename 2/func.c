@@ -119,6 +119,5 @@ void inserisciProdotti(Prodotto* prodotti, int num_prodotti)
             continue;
         }
         printf("inserire il nome del prodotto %s",prodotti[i].nome);
-        
     }
 }
