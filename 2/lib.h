@@ -34,3 +34,13 @@ typedef struct {
 
 void insertstudents(Student* students,int size);
 void studentsout(Student* students,int ns);
+
+typedef struct
+{
+    char nome[50];
+    int codice;
+    int quantita;
+    float prezzo;
+}   Prodotto;
+
+void inserisciProdotti(Prodotto* prodotti, int num_prodotti);

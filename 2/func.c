@@ -110,3 +110,15 @@ void studentsout(Student* students,int ns)
         }
     }
 }
+void inserisciProdotti(Prodotto* prodotti, int num_prodotti)
+{
+    for(int i=0;i<num_prodotti;++i)
+    {
+        if(prodotti[i].codice!=-1)
+        {
+            continue;
+        }
+        printf("inserire il nome del prodotto %s",prodotti[i].nome);
+        
+    }
+}
