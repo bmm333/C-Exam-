@@ -75,6 +75,18 @@ int main()
     scanf("%s",filename);
     list = uploadtolist(&list,filename);
     printlist(list);
+    LINK list2=NULL;
+    printf("insert second file name to prase data from:\n");
+    scanf("%s",filename);
+    list2 = uploadtolist(&list2,filename);
+    printlist(list2);
+    int cnt=1;
+    int k=1;
+    int m=1;
+    deletekm(&list,&cnt,k,m);
+    printf("list after deleting elements on k and m postion \n");
+    printlist(list);
+    printf("Max commong subsequence length is %d\n",commonlength(list,list2));
     int array[5]={1,2,5,3,2};
     printf("Max consx prod is %d\n",maxprod(array,5));
     return 0;

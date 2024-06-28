@@ -217,3 +217,50 @@ int maxprod(int *array,int arrsize)
     return max;
 }
 
+int commonlength(LINK l1,LINK l2)
+{
+    int cnt=0;
+    int max=0;
+    if(l1->next||l2->next)
+    {
+        while(l1&&l2)
+        {
+            if (l1->data == l2->data)
+        {
+            cnt++;
+            if (cnt > max)
+            {
+                max = cnt;
+            }
+            }
+            else
+            {
+                cnt = 0;
+            }
+            l1=l2->next;
+            l2=l2->next;
+        }
+    }
+    return max;
+}
+
+LINK deletekm(LINK* l1,int* cnt,int k,int m)
+{
+    if((*l1)==NULL)
+    {
+        return NULL;
+    }
+    if((*cnt)%k==0&&(*l1)->data%m==0)
+    {
+        LINK temp=*l1;
+        (*l1)=(*l1)->next;
+        free(temp);
+        return deletekm(l1,cnt,k,m);
+    }
+    else
+    {
+        (*cnt)++;
+        (*l1)->next=deletekm(&((*l1)->next),cnt,k,m);
+        return *l1;
+    }
+}

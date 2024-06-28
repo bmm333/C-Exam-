@@ -57,3 +57,5 @@ typedef ELEMENT* LINK;
 LINK uploadtolist(LINK* lis,char* nome);
 void printlist(LINK lis);
 int maxprod(int *array,int arrsize);
+int commonlength(LINK l1,LINK l2);
+LINK deletekm(LINK* l1,int* cnt,int k,int m);
